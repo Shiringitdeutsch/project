@@ -1,0 +1,34 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema Register
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema Register
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `Register` DEFAULT CHARACTER SET utf8 ;
+USE `Register` ;
+
+-- -----------------------------------------------------
+-- Table `Register`.`register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Register`.`register` (
+  `ثبت نام` INT NOT NULL,
+  `نام و نام خانوادگی` NVARCHAR(100) NOT NULL,
+  `تلفن همراه` NVARCHAR(30) NOT NULL,
+  `تلفن ثابت` NVARCHAR(30) NOT NULL,
+  `کدپستی` NVARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ثبت نام`, `نام و نام خانوادگی`, `تلفن همراه`, `تلفن ثابت`, `کدپستی`),
+  UNIQUE INDEX `تلفن همراه_UNIQUE` (`تلفن همراه` ASC) VISIBLE,
+  UNIQUE INDEX `تلفن ثابت_UNIQUE` (`تلفن ثابت` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
